@@ -10,28 +10,28 @@
     "Name": "Player",
     "Text": "Okay!",
     "Options": [
-      { "Text": "Yes", "Goto":3 },
-      { "Text": "No", "Goto":4 },
-      { "Text": "Maybe?!", "Goto":5 }
+      { "Text": "Press 1", "Goto":3 },
+      { "Text": "Press 2", "Goto":4 },
+      { "Text": "Press 3!!", "Goto":5 }
     ]
   },
   3: {
     "Name": "TestCharacter1",
-    "Text": "You picked yes...",
+    "Text": "You picked 1...",
     "Options": null,
     "RenderSpeed": "default",
     "Goto": 6
   },
   4: {
     "Name": "TestCharacter1",
-    "Text": "You picked no...",
+    "Text": "You picked 2...",
     "Options": null,
     "RenderSpeed": "default",
     "Goto": 6
   },
   5: {
     "Name": "TestCharacter1",
-    "Text": "You picked maybe...",
+    "Text": "You picked 3...",
     "Options": null,
     "RenderSpeed": "default",
     "Goto": 6
