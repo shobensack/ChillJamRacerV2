@@ -1,0 +1,60 @@
+{
+  1: {
+    "Speaker": "Speaker 1",
+    "Text": "Hey! Answer my question.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 2
+  },
+  2: {
+    "Speaker": "Speaker 2",
+    "Text": "Okay!",
+    "Options": [
+      { "Text": "Yes", "Goto":3 },
+      { "Text": "No", "Goto":4 },
+      { "Text": "Maybe?!", "Goto":5 }
+    ]
+  },
+  3: {
+    "Speaker": "Speaker 1",
+    "Text": "You picked yes...",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 6
+  },
+  4: {
+    "Speaker": "Speaker 1",
+    "Text": "You picked no...",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 6
+  },
+  5: {
+    "Speaker": "Speaker 1",
+    "Text": "You picked maybe...",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 6
+  },
+  6: {
+    "Speaker": "Speaker 2",
+    "Text": "K, well thats the end of the convo, I think?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 7
+  },
+  7: {
+    "Speaker": "Speaker 1",
+    "Text": "No its not!!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 8
+  },
+  8: {
+    "Speaker": "Speaker 2",
+    "Text": "No it is...",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": -1
+  }
+}
