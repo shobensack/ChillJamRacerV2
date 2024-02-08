@@ -2,12 +2,9 @@ using UnityEngine;
 
 public class PlayerCarController : MonoBehaviour
 {
-
-    // The input manager to read input from
     private InputManager inputManager;
-    // the character controller used for player motion
-    private CharacterController characterController;
     private Health playerHealth;
+    private Rigidbody2D rb2d; // Rigidbody2D for 2D physics
 
     // Enum to handle the player's state
     public enum PlayerState { Idle, Driving, Dead };
@@ -17,34 +14,28 @@ public class PlayerCarController : MonoBehaviour
     public PlayerState playerState = PlayerState.Idle;
 
     public float speed = 5.5f;
-    public float sensitivity = 2f;
-    public float turnSpeed = 5.0f; // Adjust the turn speed as needed
+    public float turnSpeed = 5.0f;
     public float driveSpeedThreshold = 1.0f;
-    private float currentSpeed;
-    private float speedBoostEndTime;
-    CharacterController player;
 
-    public GameObject mainCam;
+    private bool canMove = true;
 
-    float rightCharacterMovement;
-    float leftCharacterMovement;
-
-    float rotX;
-    float rotY;
-    bool canMove = true; // A flag to control player movement
-
-    // Use this for initialization
     void Start()
     {
-        player = GetComponent<CharacterController>();
-        playerHealth = GetComponent<Health>();
-        currentSpeed = speed;
-
         // Get the InputManager instance
         inputManager = InputManager.Instance;
+        playerHealth = GetComponent<Health>();
+
+        // Get the Rigidbody2D component
+        rb2d = GetComponent<Rigidbody2D>();
+
+        // Ensure that the Rigidbody2D is attached to the GameObject
+        if (rb2d == null)
+        {
+            Debug.LogError("Rigidbody2D not found on the player GameObject.");
+            return;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!canMove)
@@ -52,31 +43,39 @@ public class PlayerCarController : MonoBehaviour
             return;
         }
 
-        rightCharacterMovement = inputManager.VerticalAxis * speed;
-        leftCharacterMovement = inputManager.HorizontalAxis * speed;
-
         float horizontalInput = inputManager.HorizontalAxis;
-        float rotationAngle = horizontalInput * turnSpeed;
-        transform.Rotate(Vector3.up * rotationAngle);
+        float rotation = -horizontalInput * turnSpeed;
 
-        Vector3 movement = new Vector3(leftCharacterMovement, 0, rightCharacterMovement);
-        mainCam.transform.localRotation = Quaternion.Euler(rotY, 0, 0);
+        // Apply rotation to the player's GameObject only when there's horizontal input
+        if (!Mathf.Approximately(horizontalInput, 0.0f))
+        {
+            transform.Rotate(Vector3.forward * rotation);
+        }
 
-        movement = transform.rotation * movement;
-        movement.y -= 10f * Time.deltaTime;
+        float verticalInput = inputManager.VerticalAxis;
+        Vector2 movement = new Vector2(0, verticalInput * speed);
+
+        // Convert local rotation to world space before applying movement
+        Vector2 rotatedMovement = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * movement;
+
+        // Use Rigidbody2D to move
+        rb2d.velocity = rotatedMovement;
 
         if (playerHealth.isDead)
         {
             playerState = PlayerState.Dead;
-            player.Move(Vector3.zero);
+            // Additional logic for when the player is dead
+            // For example, you might want to disable further movement
         }
         else if (movement.magnitude >= driveSpeedThreshold)
         {
             playerState = PlayerState.Driving;
+            // Logic for when the player is driving
         }
-        else if (movement.magnitude <= driveSpeedThreshold)
+        else
         {
             playerState = PlayerState.Idle;
+            // Logic for when the player is idle
         }
     }
 }
