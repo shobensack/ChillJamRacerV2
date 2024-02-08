@@ -14,8 +14,14 @@ namespace Assets.Dialogue
     {
         [SerializeField]
         private string _dialogueScriptPath;
+        [SerializeField]
+        private DialogueBox _dialogueBox;
 
         private Dictionary<int, Message> _script;
+
+        private Message _currentScriptDialogue = null;
+        private int _currentDialogueIndex = 1;
+        private bool _waitingOnInput = false;
 
         // Start is called before the first frame update
         void Start()
@@ -27,6 +33,17 @@ namespace Assets.Dialogue
 
             if (_script == null || _script.Count == 0)
                 throw new System.Exception("Script is empty!");
+        }
+
+        void Update()
+        {
+            // no dialogue, start new one
+            if (_currentScriptDialogue == null)
+            {
+                _currentScriptDialogue = _script[_currentDialogueIndex];
+            }
+
+
         }
 
         private void ParseScript()
