@@ -1,30 +1,44 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyCarController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
-    private NavMeshAgent navMeshAgent;
-    public Transform target;  // Assign the player's transform as the target
+    [SerializeField] Transform target;
+    [SerializeField] Transform partToRotate; // Assign the front part of the car in the Inspector
+    NavMeshAgent agent;
+    public float rotationSpeed = 5f;
+    public float speed = 3f;
 
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
 
-        if (target == null)
+        if (partToRotate == null)
         {
-            Debug.LogError("Target not assigned for EnemyCarController!");
-        }
-        else
-        {
-            SetDestination();
+            Debug.LogError("Part to Rotate not assigned! Please assign it in the Inspector.");
         }
     }
 
-    void SetDestination()
+    private void Update()
     {
-        if (target != null)
+        // Set destination for NavMeshAgent
+        agent.SetDestination(target.position);
+
+        // Calculate direction to the target
+        Vector3 direction = (target.position - transform.position).normalized;
+
+        // Calculate angle in degrees along the Z-axis
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        // Set the rotation for the entire object
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 0f, angle), rotationSpeed * Time.deltaTime);
+
+        // Set the rotation for the specific part to rotate (front of the car)
+        if (partToRotate != null)
         {
-            navMeshAgent.SetDestination(target.position);
+            partToRotate.rotation = Quaternion.Euler(0f, 0f, angle);
         }
     }
 }
