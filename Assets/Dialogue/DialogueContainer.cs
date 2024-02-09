@@ -1,4 +1,5 @@
 using Assets.Dialogue;
+using System.Collections;
 using UnityEngine;
 
 public class DialogueContainer : MonoBehaviour
@@ -7,27 +8,40 @@ public class DialogueContainer : MonoBehaviour
     private DialogueNameContainer _playerNameContainer;
     [SerializeField]
     private DialogueNameContainer _characterNameContainer;
-
     [SerializeField]
     private DialogueBoxContainer _dialogueBoxContainer;
-
     [SerializeField]
     private DialogueOptionContainer[] _dialogueOptions;
+    [SerializeField]
+    private Animation _dialogueBoxContainerShowAnimation;
+
+    private bool _dialogueBoxShown = false;
 
     void Start()
     {
         HideOptions();
+        HideDialogueBox();
     }
 
-    public bool IsDialogueBoxShown() { return this.isActiveAndEnabled; }
+    private void Update()
+    {
+        
+    }
 
-    public void ShowDialogueBox()
+    public bool IsDialogueBoxShown() 
+    { 
+        return _dialogueBoxShown;
+    }
+
+    public void TriggerShowDialogueBox()
     {
         this.enabled = true;
+        _dialogueBoxContainerShowAnimation.Play();
     }
     public void HideDialogueBox()
     {
         this.enabled = false;
+        _dialogueBoxShown = false;
     }
 
     private void HideOptions()
@@ -46,11 +60,21 @@ public class DialogueContainer : MonoBehaviour
         _dialogueBoxContainer.SetText(promptMsg);
     }
 
-    public void ShowPlayerDialogue(Message message)
+    public IEnumerator ShowPlayerDialogue(Message message)
     {
         HideOptions();
 
-        _dialogueBoxContainer.SetText(message);
+        // todo show image
+        _characterNameContainer.HideName();
+        _playerNameContainer.TriggerShowName(message.Name, null);
+
+        var str = "";
+
+        foreach (var c in message.Text) {
+            str += c;
+            _dialogueBoxContainer.SetText(str); 
+            yield return new WaitForSeconds(GetRenderSpeedTime(message.RenderSpeed));
+        }
 
         if (message.Options != null)
         {
@@ -59,20 +83,41 @@ public class DialogueContainer : MonoBehaviour
             if (message.Options[1] != null) _dialogueOptions[1].ShowOption(message.Options[1].Text, message.Options[1].Goto);
             if (message.Options[2] != null) _dialogueOptions[2].ShowOption(message.Options[2].Text, message.Options[2].Goto);
         }
-
-        // todo show image
-        _characterNameContainer.HideName();
-        _playerNameContainer.ShowName(message.Name, null);
     }
 
-    public void ShowCharacterDialogue(Message message, Texture characterTexture = null)
+    public IEnumerator ShowCharacterDialogue(Message message, Texture characterTexture = null)
     {
         HideOptions();
 
-        _dialogueBoxContainer.SetText(message);
-
         // todo show image
         _playerNameContainer.HideName();
-        _characterNameContainer.ShowName(message.Name, null);
+        _characterNameContainer.TriggerShowName(message.Name, null);
+
+        var str = "";
+
+        foreach (var c in message.Text)
+        {
+            str += c;
+            _dialogueBoxContainer.SetText(str);
+            yield return new WaitForSeconds(GetRenderSpeedTime(message.RenderSpeed));
+        }
+
+    }
+
+    private float GetRenderSpeedTime(string renderSpeedStr)
+    {
+        switch (renderSpeedStr)
+        {
+            case "default": return 0.05f;
+            case "fast": return 0.5f;
+            case "slow": return 0.005f;
+            default: return 0.01f;
+        }
+    }
+
+    // EVEN HANDLER DONT DELETE
+    private void ContainerShownEventHandler()
+    {
+        _dialogueBoxShown = true;
     }
 }

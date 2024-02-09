@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Dialogue
@@ -17,11 +18,14 @@ namespace Assets.Dialogue
         [SerializeField]
         private DialogueContainer _dialogueContainer;
 
-        private Dictionary<int, Message> _script;
+        private Dictionary<int, Message> _script = new Dictionary<int, Message>();
 
+        private bool _dialogueStarted = false;
         private Message _currentScriptDialogue = null;
         private int _currentDialogueIndex = 1;
         private bool _waitingOnInput = false;
+
+        private readonly string _playerScriptName = "Player";
 
         // Start is called before the first frame update
         void Start()
@@ -33,87 +37,38 @@ namespace Assets.Dialogue
 
             if (_script == null || _script.Count == 0)
                 throw new System.Exception("Script is empty!");
+
+            // This can/should be triggered else where
+            this.StartDialogue();
+        }
+
+        public void StartDialogue()
+        {
+            _currentDialogueIndex = _script?.FirstOrDefault().Key ?? 1;
+            _currentScriptDialogue = _script[_currentDialogueIndex];
+
+            _dialogueContainer.TriggerShowDialogueBox();
+
+            _dialogueStarted = true;
         }
 
         void Update()
         {
-            // MORE TEST CODE
-            // TODO: SOMETHING HAS TO HAPPEN HERE
-            if (_currentDialogueIndex <= 0)
+            // if dialogue hasn't started, do nothing
+            if (!_dialogueStarted)
+                return;
+
+            // check if dialogue finished
+            if (_currentDialogueIndex == -1)
             {
-                _dialogueContainer.ShowPrompt("CONVO OVERRRRRRRRR");
+                EndDialogue();
                 return;
             }
 
-            // no dialogue, start new one
-            if (_currentScriptDialogue == null)
-            {
-                _currentScriptDialogue = _script[_currentDialogueIndex];
-            }
-
             if (!_waitingOnInput)
-            {
-
-                // not waiting on input, show next item in script
-                var speaker = _currentScriptDialogue.Name;
-
-                if (speaker == "Player")
-                {
-                    _dialogueContainer.ShowPlayerDialogue(_currentScriptDialogue);
-                }
-                else
-                {
-                    _dialogueContainer.ShowCharacterDialogue(_currentScriptDialogue);
-                }
-
-                _waitingOnInput = true;
-            }
+                ShowNextScriptItem();
             else
-            {
-                // waiting on input, if we get input, show next item in script
-                var scriptItemHasOptions = _currentScriptDialogue.Options?.Count > 0;
-
-                if (!scriptItemHasOptions)
-                {
-                    // just continue script to next item
-                    if (Input.GetKeyDown("a"))
-                    {
-                        _currentDialogueIndex = _currentScriptDialogue.Goto;
-                        _currentScriptDialogue = _script[_currentDialogueIndex];
-                        _waitingOnInput = false;
-                    }
-                }
-                else
-                {
-                    // if it do, wait for choose input and then move to that script
-                    // TODO: this is obviously test code!!!!
-                    if (Input.GetKeyDown("1") && _currentScriptDialogue.Options.Count >= 1)
-                    {
-                        _currentDialogueIndex = _currentScriptDialogue.Options[0].Goto;
-                        _currentScriptDialogue = _script[_currentDialogueIndex];
-                        _waitingOnInput = false;
-                    }
-
-                    if (Input.GetKeyDown("2") && _currentScriptDialogue.Options.Count >= 2)
-                    {
-                        _currentDialogueIndex = _currentScriptDialogue.Options[1].Goto;
-                        _currentScriptDialogue = _script[_currentDialogueIndex];
-                        _waitingOnInput = false;
-                    }
-
-                    if (Input.GetKeyDown("3") && _currentScriptDialogue.Options.Count >= 3)
-                    {
-                        _currentDialogueIndex = _currentScriptDialogue.Options[2].Goto;
-                        _currentScriptDialogue = _script[_currentDialogueIndex];
-                        _waitingOnInput = false;
-                    }
-                }
-
-            }
-
-
-
-
+                HandleInput();
         }
 
         private void ParseScript()
@@ -122,6 +77,64 @@ namespace Assets.Dialogue
             _script = JsonConvert.DeserializeObject<Dictionary<int, Message>>(scriptFileContents);
 
             //DebugScript();
+        }
+
+        private void ShowNextScriptItem()
+        {
+            if (_currentScriptDialogue.Name == _playerScriptName)
+                StartCoroutine(_dialogueContainer.ShowPlayerDialogue(_currentScriptDialogue));
+            else
+                StartCoroutine(_dialogueContainer.ShowCharacterDialogue(_currentScriptDialogue));
+
+            _waitingOnInput = true;
+        }
+
+        private void HandleInput()
+        {
+            // waiting on input, if we get input, show next item in script
+            var scriptItemHasOptions = _currentScriptDialogue.Options?.Count > 0;
+
+            if (!scriptItemHasOptions)
+            {
+                // just continue script to next item
+                if (Input.anyKeyDown)
+                {
+                    _currentDialogueIndex = _currentScriptDialogue.Goto;
+                    _currentScriptDialogue = _script[_currentDialogueIndex];
+                    _waitingOnInput = false;
+                }
+            }
+            else
+            {
+                // if it do, wait for choose input and then move to that script
+                // TODO: this is obviously test code!!!!
+                if (Input.GetKeyDown("1") && _currentScriptDialogue.Options.Count >= 1)
+                {
+                    _currentDialogueIndex = _currentScriptDialogue.Options[0].Goto;
+                    _currentScriptDialogue = _script[_currentDialogueIndex];
+                    _waitingOnInput = false;
+                }
+
+                if (Input.GetKeyDown("2") && _currentScriptDialogue.Options.Count >= 2)
+                {
+                    _currentDialogueIndex = _currentScriptDialogue.Options[1].Goto;
+                    _currentScriptDialogue = _script[_currentDialogueIndex];
+                    _waitingOnInput = false;
+                }
+
+                if (Input.GetKeyDown("3") && _currentScriptDialogue.Options.Count >= 3)
+                {
+                    _currentDialogueIndex = _currentScriptDialogue.Options[2].Goto;
+                    _currentScriptDialogue = _script[_currentDialogueIndex];
+                    _waitingOnInput = false;
+                }
+            }
+        }
+
+        private void EndDialogue()
+        {
+            _dialogueStarted = false;
+            // todo something here??
         }
 
         private void DebugScript()
