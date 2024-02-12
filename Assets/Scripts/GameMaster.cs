@@ -1,56 +1,85 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameMaster : MonoBehaviour
+namespace ChillRacer
 {
-    public GameObject victoryMenu; // Reference to the Victory Menu UI canvas
-    public string nextSceneName = "NextLevel"; // Change this to the name of the next scene or level
-
-    void Start()
+    public class GameMaster : MonoBehaviour
     {
-        // Ensure Victory Menu is initially disabled
-        if (victoryMenu != null)
+        public GameObject victoryMenu; // Reference to the Victory Menu UI canvas
+        public GameObject gameOverMenu; // Reference to the Game Over Menu UI canvas
+        public string nextSceneName = "NextLevel"; // Change this to the name of the next scene or level
+
+        // Assuming you have a reference to the player's Health component
+        public Health playerHealth;
+
+        void Start()
         {
+            if (playerHealth == null)
+            {
+                Debug.LogError("Player's Health component not assigned to GameMaster.");
+            }
+
             victoryMenu.SetActive(false);
+            gameOverMenu.SetActive(false);
         }
-    }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        void OnTriggerEnter2D(Collider2D other)
         {
-            // Player crossed the finish line, so it's a win
-            Debug.Log("You Win!");
-            ShowVictoryMenu();
+            if (other.CompareTag("Player"))
+            {
+                // Player crossed the finish line, so it's a win
+                Debug.Log("You Win!");
+                ShowVictoryMenu();
+            }
+            else if (other.CompareTag("Enemy"))
+            {
+                // Enemy crossed the finish line, so it's a loss
+                Debug.Log("You Lose!");
+                GameOver();
+            }
         }
-        else if (other.CompareTag("Enemy"))
+
+        void GameOver()
         {
-            // Enemy crossed the finish line, so it's a loss
-            Debug.Log("You Lose!");
-            ReloadScene();
+            if (playerHealth != null && playerHealth.isDead && playerHealth.currentLives < 0)
+            {
+                Debug.Log("Game Over");
+                ShowGameOverMenu();
+            }
         }
-    }
 
-    void ShowVictoryMenu()
-    {
-        // Activate the Victory Menu
-        if (victoryMenu != null)
+        void ShowVictoryMenu()
         {
-            victoryMenu.SetActive(true);
+            // Activate the Victory Menu
+            if (victoryMenu != null)
+            {
+                victoryMenu.SetActive(true);
+            }
+
+            // You can add additional logic here, like pausing the game or showing dialogue
         }
 
-        // You can add additional logic here, like pausing the game or showing dialogue
-    }
+        void ShowGameOverMenu()
+        {
+            // Activate the Game Over Menu
+            if (gameOverMenu != null)
+            {
+                gameOverMenu.SetActive(true);
+            }
 
-    void ReloadScene()
-    {
-        // Reload the current scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+            // You can add additional logic here, like pausing the game or showing dialogue
+        }
 
-    public void LoadNextScene()
-    {
-        // Load the next scene or level
-        SceneManager.LoadScene(nextSceneName);
+        void ReloadScene()
+        {
+            // Reload the current scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void LoadNextScene()
+        {
+            // Load the next scene or level
+            SceneManager.LoadScene(nextSceneName);
+        }
     }
 }

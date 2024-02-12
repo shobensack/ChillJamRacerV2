@@ -1899,12 +1899,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerNameContainer: {fileID: 6096168056344357814}
-  _otherNameContainer: {fileID: 2775256457270849692}
-  _dialogueBox: {fileID: 7219043364472951054}
-  _options:
-  - {fileID: 2960091890747883420}
-  - {fileID: 8033443435193409941}
-  - {fileID: 0}
+  _characterNameContainer: {fileID: 0}
+  _dialogueBoxContainer: {fileID: 0}
+  _dialogueOptions: []
+  _dialogueBoxContainerShowAnimation: {fileID: 0}
 --- !u!1 &8033443435193409941
 GameObject:
   m_ObjectHideFlags: 0

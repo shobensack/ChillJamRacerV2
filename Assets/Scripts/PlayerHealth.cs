@@ -4,129 +4,136 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// This class handles the health state of a game object.
-/// 
-/// Implementation Notes: 2D Rigidbodies must be set to never sleep for this to interact with trigger stay damage
-/// </summary>
-public class Health : MonoBehaviour
+namespace ChillRacer
 {
-    public CharacterController characterController; // Reference to the FPSController Script
-    public PlayerDeathEffect deathEffect; // Reference to the PlayerDeathEffect script
-    public LivesImageManager livesImageManager;
-
-    [Header("Team Settings")]
-    [Tooltip("The team associated with this damage")]
-    public int teamId = 0;
-
-    [Header("Health Settings")]
-    [Tooltip("The maximum health value")]
-    public int maxHealth = 100; // Maximum health for the player
-    [Tooltip("The current in game health value")]
-    public int currentHealth = 100;// Current health for the player
-    [Tooltip("Invulnerability duration, in seconds, after taking damage")]
-    public float invincibilityTime = 3f;
-    public bool isAlwaysInvincible = false;
-
-    [Header("Lives settings")]
-    [Tooltip("Whether or not to use lives")]
-    public bool useLives = false;
-    [Tooltip("Current number of lives this health has")]
-    public int currentLives; // Current number of lives for the player
-    [Tooltip("The maximum number of lives this health has")]
-    public int maxLives = 3; // Maximum number of lives for the player
-
-    public bool isDead = false;
-    private Vector3 initialPosition; // Initial position of the player
-    private Animator animator; // Reference to the Animator component
-
-    private void Start()
+    /// <summary>
+    /// This class handles the health state of a game object.
+    /// 
+    /// Implementation Notes: 2D Rigidbodies must be set to never sleep for this to interact with trigger stay damage
+    /// </summary>
+    public class Health : MonoBehaviour
     {
-        // Get the PlayerDeathEffect script attached to the same GameObject
-        deathEffect = GetComponent<PlayerDeathEffect>();
-        livesImageManager = FindObjectOfType<LivesImageManager>(); // Change this line
+        public GameObject deathEffectPrefab; // Reference to the PlayerDeathEffect script
 
-        currentLives = maxLives;
-        currentHealth = maxHealth;
-        initialPosition = transform.position; // Store the initial position
-        animator = GetComponent<Animator>();
-    }
+        [Header("Team Settings")]
+        [Tooltip("The team associated with this damage")]
+        public int teamId = 0;
 
-    public void TakeDamage(int damage)
-    {
-        if (isAlwaysInvincible)
-            return;
+        [Header("Health Settings")]
+        [Tooltip("The maximum health value")]
+        public int maxHealth = 100; // Maximum health for the player
+        [Tooltip("The current in game health value")]
+        public int currentHealth = 100;// Current health for the player
+        [Tooltip("Invulnerability duration, in seconds, after taking damage")]
+        public float invincibilityTime = 3f;
+        public bool isAlwaysInvincible = false;
 
-        if (!isDead)
+        [Header("Lives settings")]
+        [Tooltip("Whether or not to use lives")]
+        public bool useLives = false;
+        [Tooltip("Current number of lives this health has")]
+        public int currentLives; // Current number of lives for the player
+        [Tooltip("The maximum number of lives this health has")]
+        public int maxLives = 3; // Maximum number of lives for the player
+
+        public bool isDead = false;
+        private Vector3 initialPosition; // Initial position of the player
+        private Animator animator; // Reference to the Animator component
+
+        private void Start()
         {
-            currentHealth -= damage;
-
-            if (currentHealth <= 0)
+            // Get the PlayerDeathEffect script attached to the same GameObject
+            PlayerDeathEffect playerDeathEffect = GetComponent<PlayerDeathEffect>();
+            if (playerDeathEffect != null)
             {
-                Die();
+                deathEffectPrefab = playerDeathEffect.deathEffect; // Assuming 'deathEffect' is the public variable in PlayerDeathEffect
             }
-        }
-    }
 
-    void Die()
-    {
-        isDead = true;
-        Debug.Log("Die method called");
+            currentLives = maxLives;
+            currentHealth = maxHealth;
+            initialPosition = transform.position; // Store the initial position
+            animator = GetComponent<Animator>();
+        }
 
-        if (animator != null)
+
+        public void TakeDamage(int damage)
         {
-            animator.SetBool("Dead", true);
-            Debug.Log("Death animation triggered");
-        }
-        // Trigger the death effect here from the PlayerDeathEffect script
-        if (deathEffect != null)
-        {
-            deathEffect.PlayDeathEffect();
-        }
-        if (useLives)
-        {
-            if (currentLives > 0)
-            {
-                currentLives--;
-                livesImageManager.OnLivesUpdated(); // Add this line
-                StartCoroutine(RespawnAfterDelay());
+            if (isAlwaysInvincible)
                 return;
-            }
-            else
+
+            if (!isDead)
             {
-                Debug.Log("Game Over");
-                // Enable the GameOverManager GameObject if it's disabled
-                FindObjectOfType<GameMaster>().gameObject.SetActive(true);
+                Debug.Log("Player Took Damage");
+                currentHealth -= damage;
+
+                if (currentHealth <= 0)
+                {
+                    Debug.Log("Player Died");
+                    Die();
+                }
             }
         }
-        Respawn();
-    }
-    IEnumerator RespawnAfterDelay()
-    {
-        yield return new WaitForSeconds(2); // Wait for 2 seconds
 
-        Respawn(); // Respawn the player after the delay
-    }
-
-    public void Respawn()
-    {
-        isDead = false;
-        currentHealth = maxHealth;
-
-        // Additional logic for resetting other parameters if needed
-
-        // Trigger the respawn animation if an Animator is available
-        if (animator != null)
+        void Die()
         {
-            animator.SetBool("Dead", false); // Assuming the parameter in the Animator controller is named "Dead"
-            Debug.Log("Respawn animation triggered");
+            isDead = true;
+            Debug.Log("Die method called");
+
+            if (animator != null)
+            {
+                animator.SetBool("Dead", true);
+                Debug.Log("Death animation triggered");
+            }
+            // Trigger the death effect here from the PlayerDeathEffect script
+            if (deathEffectPrefab != null)
+            {
+                // Instantiate the death effect prefab at the enemy's position
+                Instantiate(deathEffectPrefab, transform.position, transform.rotation);
+            }
+            if (useLives)
+            {
+                if (currentLives > 0)
+                {
+                    currentLives--;
+                    StartCoroutine(RespawnAfterDelay());
+                    return;
+                }
+                else
+                {
+                    Debug.Log("Game Over");
+                    // Enable the GameOverManager GameObject if it's disabled
+                    FindObjectOfType<GameMaster>().gameObject.SetActive(true);
+                }
+            }
+            Respawn();
+        }
+        IEnumerator RespawnAfterDelay()
+        {
+            yield return new WaitForSeconds(2); // Wait for 2 seconds
+
+            Respawn(); // Respawn the player after the delay
         }
 
-        // Set the player's position to the initial position only if not already dead
-        if (!isDead)
+        public void Respawn()
         {
-            transform.position = initialPosition; // Reset to initial position
+            isDead = false;
+            currentHealth = maxHealth;
+
+            // Additional logic for resetting other parameters if needed
+
+            // Trigger the respawn animation if an Animator is available
+            if (animator != null)
+            {
+                animator.SetBool("Dead", false); // Assuming the parameter in the Animator controller is named "Dead"
+                Debug.Log("Respawn animation triggered");
+            }
+
+            // Set the player's position to the initial position only if not already dead
+            if (!isDead)
+            {
+                transform.position = initialPosition; // Reset to initial position
+            }
+            Debug.Log("Player Respawned");
         }
-        Debug.Log("Player Respawned");
     }
 }

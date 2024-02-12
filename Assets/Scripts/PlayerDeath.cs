@@ -2,81 +2,84 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDeathEffect : MonoBehaviour
+namespace ChillRacer
 {
-    public GameObject deathEffect; // The effect to play when the player dies
-    public Animator playerAnimator; // Reference to the player's Animator component
-    public AudioClip deathAudioClip; // Audio clip for death effect
-
-    private Health playerHealth;
-    private CharacterController characterController;
-    // Flag to control movement
-    private bool canMove = true;
-
-    private void Start()
+    public class PlayerDeathEffect : MonoBehaviour
     {
-        playerAnimator = GetComponent<Animator>();
-        playerHealth = GetComponent<Health>();
-        if (playerHealth == null)
-        {
-            Debug.LogError("Health script not found on the player GameObject.");
-        }
-    }
+        public GameObject deathEffect; // The effect to play when the player dies
+        public Animator playerAnimator; // Reference to the player's Animator component
+        public AudioClip deathAudioClip; // Audio clip for death effect
 
-    private void Update()
-    {
-        if (playerHealth != null && playerHealth.isDead)
+        private Health playerHealth;
+        private CharacterController characterController;
+        // Flag to control movement
+        private bool canMove = true;
+
+        private void Start()
         {
-            if (canMove)
+            playerAnimator = GetComponent<Animator>();
+            playerHealth = GetComponent<Health>();
+            if (playerHealth == null)
             {
-                // The player's health is zero or less, trigger the death effect
-                PlayDeathEffect();
+                Debug.LogError("Health script not found on the player GameObject.");
             }
         }
-    }
 
-    public void PlayDeathEffect()
-    {
-        if (deathEffect != null)
+        private void Update()
         {
-            Instantiate(deathEffect, transform.position, transform.rotation);
+            if (playerHealth != null && playerHealth.isDead)
+            {
+                if (canMove)
+                {
+                    // The player's health is zero or less, trigger the death effect
+                    PlayDeathEffect();
+                }
+            }
         }
 
-        if (playerHealth != null)
+        public void PlayDeathEffect()
         {
-            playerHealth.isAlwaysInvincible = true; // Set the player as invincible
-
-            Debug.Log("Playing Death Effect - Before animation");
-            if (playerAnimator != null)
+            if (deathEffect != null)
             {
-                playerAnimator.SetBool("Dead", true); // Trigger the "Dead" animation state
+                Instantiate(deathEffect, transform.position, transform.rotation);
             }
-            Debug.Log("Playing Death Effect - After animation");
 
-            if (deathAudioClip != null)
+            if (playerHealth != null)
             {
-                AudioSource.PlayClipAtPoint(deathAudioClip, transform.position); // Play death audio at the player's position
+                playerHealth.isAlwaysInvincible = true; // Set the player as invincible
+
+                Debug.Log("Playing Death Effect - Before animation");
+                if (playerAnimator != null)
+                {
+                    playerAnimator.SetBool("Dead", true); // Trigger the "Dead" animation state
+                }
+                Debug.Log("Playing Death Effect - After animation");
+
+                if (deathAudioClip != null)
+                {
+                    AudioSource.PlayClipAtPoint(deathAudioClip, transform.position); // Play death audio at the player's position
+                }
+                canMove = false; // Disable movement
+                StartCoroutine(RespawnAfterDelay());
             }
-            canMove = false; // Disable movement
-            StartCoroutine(RespawnAfterDelay());
         }
-    }
 
-    IEnumerator RespawnAfterDelay()
-    {
-        yield return new WaitForSeconds(2); // Wait for 2 seconds
-        canMove = true; // Enable movement after respawn
-
-        if (playerHealth != null)
+        IEnumerator RespawnAfterDelay()
         {
-            playerHealth.isAlwaysInvincible = false; // Set the player back to normal vulnerability
+            yield return new WaitForSeconds(2); // Wait for 2 seconds
+            canMove = true; // Enable movement after respawn
 
-            if (playerAnimator != null)
+            if (playerHealth != null)
             {
-                playerAnimator.SetBool("Dead", false); // Set the "Dead" animation state back to false
-            }
+                playerHealth.isAlwaysInvincible = false; // Set the player back to normal vulnerability
 
-            playerHealth.Respawn(); // Respawn the player
+                if (playerAnimator != null)
+                {
+                    playerAnimator.SetBool("Dead", false); // Set the "Dead" animation state back to false
+                }
+
+                playerHealth.Respawn(); // Respawn the player
+            }
         }
     }
 }
