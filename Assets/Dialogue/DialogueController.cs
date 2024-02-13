@@ -89,9 +89,9 @@ namespace Assets.Dialogue
         private void ShowNextScriptItem()
         {
             if (_currentScriptDialogue.Name == _playerScriptName)
-                StartCoroutine(_dialogueContainer.ShowPlayerDialogue(_currentScriptDialogue));
+                _dialogueContainer.ShowPlayerDialogue(_currentScriptDialogue);
             else
-                StartCoroutine(_dialogueContainer.ShowCharacterDialogue(_currentScriptDialogue));
+                _dialogueContainer.ShowCharacterDialogue(_currentScriptDialogue);
 
             _waitingOnInput = true;
         }

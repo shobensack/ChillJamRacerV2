@@ -470,7 +470,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464661982}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 82413ac3232347c46a5764bc1cdeb294, type: 2}
   m_Animations:
@@ -729,6 +729,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1022674539044023751, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1126085389987536975, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_Name
       value: DialogueBoxContainer
@@ -747,7 +751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2775256457270849692, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2854808393169242479, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_Name
@@ -759,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2960091890747883420, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3922769036109478460, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
@@ -815,7 +819,15 @@ PrefabInstance:
       objectReference: {fileID: 1612349967}
     - target: {fileID: 4608954770878317429, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608954770878317429, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608954770878317429, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4865659491616916755, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
@@ -907,11 +919,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6096168056344357814, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693756560187167837, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_CullTransparentMesh
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6711369659388066510, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6903652321831017887, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
@@ -919,7 +935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7219043364472951054, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7902380052574001380, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
@@ -927,7 +943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8033443435193409941, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

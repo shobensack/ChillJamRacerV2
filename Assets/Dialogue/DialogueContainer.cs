@@ -36,8 +36,9 @@ public class DialogueContainer : MonoBehaviour
     public void TriggerShowDialogueBox()
     {
         this.enabled = true;
-        _dialogueBoxContainerShowAnimation.Play();
+        //_dialogueBoxContainerShowAnimation.Play();
     }
+
     public void HideDialogueBox()
     {
         this.enabled = false;
@@ -60,7 +61,7 @@ public class DialogueContainer : MonoBehaviour
         _dialogueBoxContainer.SetText(promptMsg);
     }
 
-    public IEnumerator ShowPlayerDialogue(Message message)
+    public void ShowPlayerDialogue(Message message)
     {
         HideOptions();
 
@@ -68,13 +69,7 @@ public class DialogueContainer : MonoBehaviour
         _characterNameContainer.HideName();
         _playerNameContainer.TriggerShowName(message.Name, null);
 
-        var str = "";
-
-        foreach (var c in message.Text) {
-            str += c;
-            _dialogueBoxContainer.SetText(str); 
-            yield return new WaitForSeconds(GetRenderSpeedTime(message.RenderSpeed));
-        }
+        _dialogueBoxContainer.SetText(message.Text);
 
         if (message.Options != null)
         {
@@ -85,22 +80,15 @@ public class DialogueContainer : MonoBehaviour
         }
     }
 
-    public IEnumerator ShowCharacterDialogue(Message message, Texture characterTexture = null)
+    public void ShowCharacterDialogue(Message message, Texture characterTexture = null)
     {
         HideOptions();
 
         // todo show image
         _playerNameContainer.HideName();
         _characterNameContainer.TriggerShowName(message.Name, null);
-
-        var str = "";
-
-        foreach (var c in message.Text)
-        {
-            str += c;
-            _dialogueBoxContainer.SetText(str);
-            yield return new WaitForSeconds(GetRenderSpeedTime(message.RenderSpeed));
-        }
+        
+        _dialogueBoxContainer.SetText(message.Text);
 
     }
 
