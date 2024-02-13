@@ -1,0 +1,114 @@
+{
+  30: {
+    "Name": "Francis",
+    "Text": "A newbie? I thought no one else would ever join!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 31
+  },
+  31: {
+    "Name": "Player",
+    "Text": "You seem very new yourself.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 32
+  },
+  32: {
+    "Name": "Francis",
+    "Text": "No need to be rude now.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 33
+  },
+  33: {
+    "Name": "Player",
+    "Text": "It goes for you too.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 34
+  },
+  34: {
+    "Name": "Francis",
+    "Text": "I wasn’t being rude- Emily.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 1
+  },
+  1: {
+    "Name": "Player",
+    "Text": "All right then. Get out of my way.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 2
+  },
+  2: {
+    "Name": "Francis",
+    "Text": "Where you heading?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 3
+  },
+  3: {
+    "Name": "Player",
+    "Text": "Championship game.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 4
+  },
+  4: {
+    "Name": "Francis",
+    "Text": "Sure you are.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 5
+  },
+  5: {
+    "Name": "None",
+    "Text": "You decide to walk away, ignoring Francis’s stupidity.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 6
+  },
+  6: {
+    "Name": "Charlie",
+    "Text": "Hey Emily! Just finished fixing up your car!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 7
+  },
+  7: {
+    "Name": "Player",
+    "Text": "Great! Come on, we’re heading to the Championship.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 8
+  },
+  8: {
+    "Name": "Charlie",
+    "Text": "Whoa Championship? Well, let’s go!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 9
+  },
+  9: {
+    "Name": "None",
+    "Text": "Another bad dream, waking up sweating. It’s been burned into your mind.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 10
+  },
+  10: {
+    "Name": "None",
+    "Text": "Kenna and Adam - they beat you in a race. You realized how much you hate that idea.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 11
+  },
+  11: {
+    "Name": "None",
+    "Text": "You won’t let them beat you… ever.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": -1
+  }
+}

@@ -1,0 +1,170 @@
+{
+    30: {
+        "Name": "Kenna",
+        "Text": "Look, who’s new around here now?",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 31
+    },
+    31: {
+        "Name": "Player",
+        "Text": "I’d say the same for you as I had just got higher placed.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 32
+    },
+    32: {
+        "Name": "Kenna",
+        "Text": "Better be careful, you can get kicked out of these races you know?",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 33
+    },
+    33: {
+        "Name": "Player",
+        "Text": "I’m not afraid to be kicked out, you should.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 34
+    },
+    34: {
+        "Name": "Kenna",
+        "Text": "Whatever, while you’re at it- how about you quit and go back to your old grocery store job.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 35
+    },
+    35: {
+        "Name": "Player",
+        "Text": "A pleasure to be meeting you…",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 36
+    },
+    36: {
+        "Name": "Kenna",
+        "Text": "A shame, you know the salon next door is hiring…",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 37
+    },
+    37: {
+        "Name": "Player",
+        "Text": "Cool. I don’t care.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 38
+    },
+    38: {
+        "Name": "Kenna",
+        "Text": "Then you should, no one wants you here anyways.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 39
+    },
+    39: {
+        "Name": "Player",
+        "Text": "That’s nice",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 40
+    },
+    40: {
+        "Name": "Kenna",
+        "Text": "Just go, alright? Find someone else to bother!",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 41
+    },
+    41: {
+        "Name": "Player",
+        "Text": "Go find your mom, maybe she’ll comfort you.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 42
+    },
+    42: {
+        "Name": "Kenna",
+        "Text": "You’re so mean to me!",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 43
+    },
+    43: {
+        "Name": "None",
+        "Text": "She walks off, angry and pouting for her own sanity. Good you aren’t like her.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 44
+    },
+    44: {
+        "Name": "Adam",
+        "Text": "Look what you did?",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 45
+    },
+    45: {
+        "Name": "Player",
+        "Text": "What?",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 46
+    },
+    46: {
+        "Name": "None",
+        "Text": "Adam walks off too, you know him from your old high school. He was always following after someone. You shouldn’t apologize to Kenna.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 47
+    },
+    47: {
+        "Name": "None",
+        "Text": "Charlie walks up, he’s done fixing your car and seems to be in a good mood.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 48
+    },
+    48: {
+        "Name": "Charlie",
+        "Text": "What was that all about?",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 49
+    },
+    49: {
+        "Name": "Player",
+        "Text": "Nothing",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 50
+    },
+    50: {
+        "Name": "Charlie",
+        "Text": "No, it is important. Tell me.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 51
+    },
+    51: {
+        "Name": "Player",
+        "Text": "Just Kenna and Adam.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 52
+    },
+    52: {
+        "Name": "Charlie",
+        "Text": "Well, those two are nothing to worry about. They have a sad life.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 53
+    },
+    53: {
+        "Name": "Charlie",
+        "Text": "Anyways, the next race is starting. Better beat them and their friends!",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": -1
+    }
+}

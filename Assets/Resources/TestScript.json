@@ -1,0 +1,60 @@
+{
+  1: {
+    "Name": "TestCharacter1",
+    "Text": "Hey! Answer my question.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 2
+  },
+  2: {
+    "Name": "Player",
+    "Text": "Okay!",
+    "Options": [
+      { "Text": "Press 1", "Goto":3 },
+      { "Text": "Press 2", "Goto":4 },
+      { "Text": "Press 3!!", "Goto":5 }
+    ]
+  },
+  3: {
+    "Name": "TestCharacter1",
+    "Text": "You picked 1...",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 6
+  },
+  4: {
+    "Name": "TestCharacter1",
+    "Text": "You picked 2...",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 6
+  },
+  5: {
+    "Name": "TestCharacter1",
+    "Text": "You picked 3...",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 6
+  },
+  6: {
+    "Name": "Player",
+    "Text": "K, well thats the end of the convo, I think?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 7
+  },
+  7: {
+    "Name": "TestCharacter1",
+    "Text": "No its not!!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 8
+  },
+  8: {
+    "Name": "Player",
+    "Text": "It is!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": -1
+  }
+}

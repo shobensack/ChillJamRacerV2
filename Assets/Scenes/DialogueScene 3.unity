@@ -813,7 +813,7 @@ PrefabInstance:
       objectReference: {fileID: 1612349966}
     - target: {fileID: 1235528663394548756, guid: ea8103d4a4769ec41918b88fee60f23a, type: 3}
       propertyPath: _dialogueScriptPath
-      value: Assets/Scripts/scene_four.json
+      value: scene_four
       objectReference: {fileID: 0}
     - target: {fileID: 2541800840503137829, guid: ea8103d4a4769ec41918b88fee60f23a, type: 3}
       propertyPath: m_Name

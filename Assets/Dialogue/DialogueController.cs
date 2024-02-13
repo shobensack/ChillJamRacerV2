@@ -80,8 +80,8 @@ namespace Assets.Dialogue
 
         private void ParseScript()
         {
-            var scriptFileContents = File.ReadAllText(_dialogueScriptPath);
-            _script = JsonConvert.DeserializeObject<Dictionary<int, Message>>(scriptFileContents);
+            var test = Resources.Load<TextAsset>(_dialogueScriptPath);
+            _script = JsonConvert.DeserializeObject<Dictionary<int, Message>>(test.ToString());
 
             //DebugScript();
         }
