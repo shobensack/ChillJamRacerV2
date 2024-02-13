@@ -24,6 +24,7 @@ namespace ChillRacer
         // Whether the application is paused
         public static bool isPaused = false;
         public GameObject pauseMenu;
+        public GameObject startMenu;
 
         void Start()
         {
@@ -58,6 +59,7 @@ namespace ChillRacer
         void Resume()
         {
             pauseMenu.SetActive(false);
+            startMenu.SetActive(false);
             Time.timeScale = 1f;
             isPaused = false;
         }

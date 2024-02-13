@@ -74,7 +74,7 @@
 		"Text": "You should fix it up.",
 		"Options": null,
 		"RenderSpeed": "default",
-		"Goto": 14
+		"Goto": 15
 	},
 	14: {
 		"Name": "None",
@@ -134,12 +134,59 @@
 		"Goto": 22
 	},
 	22: {
-		"Name": "Player",
-		"Text": "Is there anyone else I can talk to?",
+		"Name": "Henry",
+		"Text": "Sure, just don’t say I didn’t warn you.",
 		"Options": null,
 		"RenderSpeed": "default",
 		"Goto": 23
 	},
-	
-	
+	23: {
+		"Name": "Charlie",
+		"Text": "Hi, why don’t you go get set up with the others? *Starts fixing up Kenna’s car*.",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 25
+	},
+    25: {
+        "Name": "You",
+        "Text": "I’m not going to work with those two.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 26
+    },
+    26: {
+        "Name": "Charlie",
+        "Text": "Ah, you’ll get used to them.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 27
+    },
+    27: {
+        "Name": "You",
+        "Text": "May I just hire you for the technician team?",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 28
+    },
+    28: {
+        "Name": "Charlie",
+        "Text": "Sure, I guess.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 29
+    },
+    29: {
+        "Name": "None",
+        "Text": "Charlie fixes up your car, remarking he doesn’t need money for the effort.",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": 30
+    },
+	30: {
+		"Name": "None",
+        "Text": "Race Starts",
+        "Options": null,
+        "RenderSpeed": "default",
+        "Goto": -1
+	}
 }

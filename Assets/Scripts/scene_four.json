@@ -1,0 +1,128 @@
+{
+  54: {
+    "Name": "Kenna",
+    "Text": "Wow, show off much? You really thought you would be such a goodie winning?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 55
+  },
+  55: {
+    "Name": "Player",
+    "Text": "Sure, if you say so.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 56
+  },
+  56: {
+    "Name": "Kenna",
+    "Text": "Well, I don’t think so, but I know you do.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 57
+  },
+  57: {
+    "Name": "Player",
+    "Text": "Why don’t you just go away?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 58
+  },
+  58: {
+    "Name": "Kenna",
+    "Text": "No, I won’t.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 59
+  },
+  59: {
+    "Name": "None",
+    "Text": "She runs off, angry with her arms crossed.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 60
+  },
+  60: {
+    "Name": "Adam",
+    "Text": "You’re such a loser! Why don’t you just go quit?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 61
+  },
+  61: {
+    "Name": "Player",
+    "Text": "Because I don’t want to quit?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 62
+  },
+  62: {
+    "Name": "Adam",
+    "Text": "Well, you should! No one wants you here anyway!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 63
+  },
+  63: {
+    "Name": "None",
+    "Text": "Charlie pushes through, breaking up Adam and you from fighting.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 64
+  },
+  64: {
+    "Name": "Charlie",
+    "Text": "Stop fighting! You need to let Emily be included!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 65
+  },
+  65: {
+    "Name": "Adam",
+    "Text": "I shouldn’t have to, neither should Kenna!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 66
+  },
+  66: {
+    "Name": "Charlie",
+    "Text": "Good thing is you might not make it to the finals with this behavior!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 67
+  },
+  67: {
+    "Name": "Adam",
+    "Text": "We’ll see about that old man!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 68
+  },
+  68: {
+    "Name": "None",
+    "Text": "Adam walks off, you’re stunned over the fight.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 69
+  },
+  69: {
+    "Name": "Charlie",
+    "Text": "Sorry about the...",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 70
+  },
+  70: {
+    "Name": "Player",
+    "Text": "It’s alright.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 71
+  },
+  71: {
+    "Name": "Charlie",
+    "Text": "I’m sorry.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": -1
+  }
+}

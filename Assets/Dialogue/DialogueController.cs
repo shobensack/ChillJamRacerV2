@@ -27,10 +27,12 @@ namespace Assets.Dialogue
         private bool _waitingOnInput = false;
 
         private readonly string _playerScriptName = "Player";
+        private readonly string _noneScriptName = "None";
 
         // Start is called before the first frame update
         void Start()
         {
+            Time.timeScale = 1f;
             if (string.IsNullOrWhiteSpace(_dialogueScriptPath))
                 throw new System.Exception("Missing dialogue script path!");
 

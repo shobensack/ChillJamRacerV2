@@ -1,0 +1,79 @@
+{
+  76: {
+    "Name": "Kenna",
+    "Text": "Hey! Emily good job! I’m so proud of you!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 77
+  },
+  77: {
+    "Name": "Player",
+    "Text": "Don’t you hate me?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 78
+  },
+  78: {
+    "Name": "Kenna",
+    "Text": "No! Obviously not? That was all just a bunch of horseplay!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 79
+  },
+  79: {
+    "Name": "Player",
+    "Text": "Why don’t you hate me anymore?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 80
+  },
+  80: {
+    "Name": "Kenna",
+    "Text": "Come on! Let's go collect your prize money!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 81
+  },
+  81: {
+    "Name": "Player",
+    "Text": "Hold on, we?",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 82
+  },
+  82: {
+    "Name": "Kenna",
+    "Text": "Yeah! Let's go!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 83
+  },
+  83: {
+    "Name": "Player",
+    "Text": "No, it's my money...",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 84
+  },
+  84: {
+    "Name": "Kenna",
+    "Text": "No! I deserve some! I deserve the money! I’M THE WINNER!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 85
+  },
+  85: {
+    "Name": "None",
+    "Text": "Kenna is quickly dragged off, dragged off the field into the stands kicking and screaming.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 86
+  },
+  86: {
+    "Name": "None",
+    "Text": "Finally, all of them are gone. Charlie is still there- but maybe you can continue your dream.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": -1
+  }
+}

@@ -1,0 +1,30 @@
+{
+  72: {
+    "Name": "Kenna",
+    "Text": "Good luck, loser.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 73
+  },
+  73: {
+    "Name": "Player",
+    "Text": "Good luck to you too.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 74
+  },
+  74: {
+    "Name": "Kenna",
+    "Text": "She rolls her eyes at you.",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": 75
+  },
+  75: {
+    "Name": "Kenna",
+    "Text": "Sure, like I’ll need it!",
+    "Options": null,
+    "RenderSpeed": "default",
+    "Goto": -1
+  }
+}

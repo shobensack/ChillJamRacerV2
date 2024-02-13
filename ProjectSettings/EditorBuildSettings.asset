@@ -25,5 +25,20 @@ EditorBuildSettings:
     guid: 035d2b91a7701134790bda398dac8c2c
   - enabled: 1
     path: Assets/Scenes/RacingScene 3.unity
+    guid: fac154ab9d94c294a92d0983b26326c7
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene 3.unity
+    guid: 5fe79589a28a8594c929bf45574eebda
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene 4.unity
+    guid: 12ba4926ddb057f4685b30a1474baca3
+  - enabled: 1
+    path: Assets/Scenes/RacingScene 4.unity
     guid: f3add487a31603949ba9a21de935caf9
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene 5.unity
+    guid: 36521de85fe2c964d9a6d5309f5457ef
+  - enabled: 1
+    path: Assets/Scenes/VictoryScene.unity
+    guid: 000a761396f2ec94281b389fde7be8c0
   m_configObjects: {}
