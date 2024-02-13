@@ -548,6 +548,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NarrativeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2960091890747883420, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4491111611620191217, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: _dialogueBox
       value: 
@@ -602,7 +606,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4865659491616916755, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5914029318855320668, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_Pivot.x
@@ -690,15 +694,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6096168056344357814, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6711369659388066510, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7219043364472951054, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7902380052574001380, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033443435193409941, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

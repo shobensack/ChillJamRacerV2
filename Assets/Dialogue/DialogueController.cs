@@ -61,14 +61,18 @@ namespace Assets.Dialogue
             // check if dialogue finished
             if (_currentDialogueIndex == -1)
             {
+                _dialogueStarted = false;
                 EndDialogue();
                 return;
             }
-
-            if (!_waitingOnInput)
-                ShowNextScriptItem();
             else
-                HandleInput();
+            {
+                if (!_waitingOnInput)
+                    ShowNextScriptItem();
+                else
+                    HandleInput();
+            }
+
         }
 
         private void ParseScript()
@@ -91,6 +95,8 @@ namespace Assets.Dialogue
 
         private void HandleInput()
         {
+            if (!_dialogueStarted) return;
+
             // waiting on input, if we get input, show next item in script
             var scriptItemHasOptions = _currentScriptDialogue.Options?.Count > 0;
 
