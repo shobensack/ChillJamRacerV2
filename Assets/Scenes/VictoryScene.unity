@@ -1271,6 +1271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 5056639430170787318, guid: e213072559d4bfa4baa8a2aea95893dc, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4a570361df1cefe4497fa473454ec11e, type: 3}
     - target: {fileID: 5195639961694002902, guid: e213072559d4bfa4baa8a2aea95893dc, type: 3}
       propertyPath: m_IsActive
       value: 0
