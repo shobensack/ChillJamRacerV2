@@ -15,8 +15,8 @@ namespace ChillRacer
         [Tooltip("The state the player controller is currently in")]
         public PlayerState playerState = PlayerState.Idle;
 
-        public float speed = 5.5f;
-        public float turnSpeed = 5.0f;
+        public float speed = 3f;
+        public float turnSpeed = 0.5f;
         public float driveSpeedThreshold = 1.0f;
 
         private bool canMove = true;
