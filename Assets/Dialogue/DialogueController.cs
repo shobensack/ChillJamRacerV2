@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Dialogue
 {
@@ -140,7 +141,15 @@ namespace Assets.Dialogue
         private void EndDialogue()
         {
             _dialogueStarted = false;
-            // todo something here??
+            LoadNextScene();
+        }
+
+        public void LoadNextScene()
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            int nextSceneIndex = (currentSceneIndex + 1) % SceneManager.sceneCountInBuildSettings;
+
+            SceneManager.LoadScene(nextSceneIndex);
         }
 
         private void DebugScript()
