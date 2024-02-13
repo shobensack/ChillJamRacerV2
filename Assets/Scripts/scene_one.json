@@ -1,0 +1,145 @@
+{
+	1: {
+		"Name": "None",
+		"Text": "You wake up… you had another one of those bad dreams.",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 2
+	},
+	2: {
+		"Name": "None",
+		"Text": "You are stuck at your current job, no where to turn to.",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 3
+	},
+	3: {
+		"Name": "None",
+		"Text": "Grocery store cashier clerk for the rest of your life, No family and living in your parents basement.",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 4
+	},
+	4: {
+		"Name": "None",
+		"Text": "Time to wake up, head to your boring job and be poor.",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 5
+	},
+	5: {
+		"Name": "Customer1",
+		"Text": "How’s your day going?",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 6
+	},
+	6: {
+		"Name": "Player",
+		"Text": "Decent, yours?",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 8
+	},
+	8: {
+		"Name": "Customer1",
+		"Text": "Ima ecstatic! I was helping my son sign up for his first race! The cost of entry is only $50! The 1st place winner gets $1,500!",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 9
+	},
+	9: {
+		"Name": "Player",
+		"Text": "Wow, that’s cool! Quite a lot of money for a beginner’s race! Have a nice day sir.",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 11
+	},
+	11: {
+		"Name": "None",
+		"Text": "You then remember your grandma; she was an amazing racer too. You know she has a car in the old garage out back. Maybe that’s your next employment?",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 12
+	},
+	12: {
+		"Name": "None",
+		"Text": "The garage is dusty and old, reeks of the smell of mice. The car is worse...",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 13
+	},
+	13: {
+		"Name": "None",
+		"Text": "You should fix it up.",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 14
+	},
+	14: {
+		"Name": "None",
+		"Text": "You should fix it up.",
+		"Options":[
+			{ "Text": "Replace the tires", "Goto":15 }, 
+			{ "Text": "Take it to the race anyway", "Goto":16 }
+		]
+	},
+	15: {
+		"Name": "None",
+		"Text": "You don’t have enough money",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 16
+	},
+	16: {
+		"Name": "None",
+		"Text": "At the race....",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 17
+	},
+	17: {
+		"Name": "Henry",
+		"Text": "Hey, the stadiums are back there.",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 18
+	},
+	18: {
+		"Name": "Player",
+		"Text": "I’m here for the race.",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 19
+	},
+	19: {
+		"Name": "George",
+		"Text": "Are you sure you know what you’re doing?",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 20
+	},
+	20: {
+		"Name": "Henry",
+		"Text": "With the look of that car? Probably not!",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 21
+	},
+	21: {
+		"Name": "Player",
+		"Text": "Is there anyone else I can talk to?",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 22
+	},
+	22: {
+		"Name": "Player",
+		"Text": "Is there anyone else I can talk to?",
+		"Options": null,
+		"RenderSpeed": "default",
+		"Goto": 23
+	},
+	
+	
+}

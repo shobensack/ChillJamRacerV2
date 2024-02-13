@@ -19,7 +19,6 @@ namespace ChillRacer
         public GameObject clickEffect;
         [Tooltip("The effect to create when the player is backing out of a Menu page")]
         public GameObject backEffect;
-        public Slider healthBar;
         public Health playerHealth; // Reference to the Health scrip
 
         // Whether the application is paused
@@ -37,18 +36,11 @@ namespace ChillRacer
             {
                 Debug.LogError("Player object not found or inactive!");
             }
-
-            healthBar = GameObject.Find("HealthBar").GetComponent<Slider>();
-            healthBar.maxValue = playerHealth.maxHealth;
         }
 
 
         void Update()
         {
-            if (playerHealth != null)
-            {
-                healthBar.value = playerHealth.currentHealth;
-            }
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {

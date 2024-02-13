@@ -6,6 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 03c855652c1b5a646aa4e772d96919c9
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene.unity
+    guid: a9d54ce37299e4c42a2ed8c2d8299eff
+  - enabled: 1
     path: Assets/Scenes/RacingScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene 1.unity
+    guid: fb1bb2b0db9aba14fb860e649b7f3836
+  - enabled: 1
+    path: Assets/Scenes/RacingScene 2.unity
+    guid: 7711b5c164cc02e48b56886cc6407027
+  - enabled: 1
+    path: Assets/Scenes/DialogueScene 2.unity
+    guid: 035d2b91a7701134790bda398dac8c2c
+  - enabled: 1
+    path: Assets/Scenes/RacingScene 3.unity
+    guid: f3add487a31603949ba9a21de935caf9
   m_configObjects: {}

@@ -1709,6 +1709,27 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e213072559d4bfa4baa8a2aea95893dc, type: 3}
+--- !u!114 &7734254353769443110 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7164808324973985421, guid: e213072559d4bfa4baa8a2aea95893dc, type: 3}
+  m_PrefabInstance: {fileID: 7734254353769443109}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d0182a729cabb4188ca8763ec16e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7734254353769443111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7807753041005250999, guid: e213072559d4bfa4baa8a2aea95893dc, type: 3}
+  m_PrefabInstance: {fileID: 7734254353769443109}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7734254353769443112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3111446577334757603, guid: e213072559d4bfa4baa8a2aea95893dc, type: 3}
+  m_PrefabInstance: {fileID: 7734254353769443109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8467626491931527214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1772,15 +1793,19 @@ PrefabInstance:
     - target: {fileID: 7337137220077943329, guid: f638e821d65e7e54bab92d80d7857e2d, type: 3}
       propertyPath: victoryMenu
       value: 
-      objectReference: {fileID: 2854808393169242479, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      objectReference: {fileID: 7734254353769443111}
     - target: {fileID: 7337137220077943329, guid: f638e821d65e7e54bab92d80d7857e2d, type: 3}
       propertyPath: gameOverMenu
       value: 
-      objectReference: {fileID: 2854808393169242479, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      objectReference: {fileID: 7734254353769443112}
     - target: {fileID: 7337137220077943329, guid: f638e821d65e7e54bab92d80d7857e2d, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1480233386}
+    - target: {fileID: 7337137220077943329, guid: f638e821d65e7e54bab92d80d7857e2d, type: 3}
+      propertyPath: gameOverManager
+      value: 
+      objectReference: {fileID: 7734254353769443110}
     - target: {fileID: 7687985120192188619, guid: f638e821d65e7e54bab92d80d7857e2d, type: 3}
       propertyPath: m_Name
       value: GameMaster
