@@ -346,6 +346,49 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!1 &1697132530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2854808393169242479, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+  m_PrefabInstance: {fileID: 6323811108256270119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1697132535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697132530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 9164227527825781913, guid: 1364582e6bd79d746bfca8e22c410e8b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1697132536
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697132530}
+  m_CullTransparentMesh: 1
 --- !u!1 &1867393577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6096168056344357814, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
@@ -406,6 +449,10 @@ PrefabInstance:
       propertyPath: _dialogueContainer
       value: 
       objectReference: {fileID: 1612349966}
+    - target: {fileID: 1235528663394548756, guid: ea8103d4a4769ec41918b88fee60f23a, type: 3}
+      propertyPath: _dialogueScriptPath
+      value: Assets/Scripts/scene_one.json
+      objectReference: {fileID: 0}
     - target: {fileID: 2541800840503137829, guid: ea8103d4a4769ec41918b88fee60f23a, type: 3}
       propertyPath: m_Name
       value: DialogueController
@@ -528,6 +575,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 39663664371563340, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 332811604180367853, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 381758089744067666, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 434820730227096273, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1126085389987536975, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_Name
       value: DialogueBoxContainer
@@ -538,19 +601,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1441540793016689204, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200
+      value: 144
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438178229687525378, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2775256457270849692, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2854808393169242479, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_Name
       value: NarrativeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2854808393169242479, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2960091890747883420, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4491111611620191217, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: _dialogueBox
@@ -700,9 +771,13 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7219043364472951054, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+    - target: {fileID: 6903652321831017887, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219043364472951054, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7902380052574001380, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
@@ -710,12 +785,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8033443435193409941, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2854808393169242479, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1697132536}
+    - targetCorrespondingSourceObject: {fileID: 2854808393169242479, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1697132535}
     - targetCorrespondingSourceObject: {fileID: 7902380052574001380, guid: 15c2059ce56ec964394345f4d5185f02, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1612349967}
